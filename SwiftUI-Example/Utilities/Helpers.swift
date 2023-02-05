@@ -1,0 +1,20 @@
+//
+//  Helpers.swift
+//  SwiftUI-Example
+//
+//  Created by James on 03/02/2023.
+//
+
+import Combine
+
+// MARK: - View Inspection helper
+internal final class Inspection<V> {
+    let notice = PassthroughSubject<UInt, Never>()
+    var callbacks = [UInt: (V) -> Void]()
+
+    func visit(_ view: V, _ line: UInt) {
+        if let callback = callbacks.removeValue(forKey: line) {
+            callback(view)
+        }
+    }
+}
