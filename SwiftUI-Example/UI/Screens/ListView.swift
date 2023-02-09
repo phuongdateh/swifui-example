@@ -21,15 +21,29 @@ struct ListContentView: View {
     }
 
     var body: some View {
+        GeometryReader { geometry in
+            NavigationView {
+                self.content
+                    .navigationTitle("SwiftUI Content")
+                    .animation(.easeOut(duration: 0.3))
+            }
+        }
+    }
+
+    @ViewBuilder private var content: some View {
         VStack(alignment: .leading) {
             List(items, id: \.hash) { item in
-                NavigationLink(destination: self.textDetailView(name: item)) {
-                    ItemCell(name: item)
-                }
+                NavigationLink(
+                    destination: self.textDetailView(name: item),
+                    tag: item,
+                    selection: self.routingBinding.textDetail) {
+                        ItemCell(name: item)
+                    }
+                    .id(items.count)
             }
         }
         .background(Color.red)
-        .foregroundColor(.blue)
+        .foregroundColor(.black)
     }
 
     func textDetailView(name: String) -> some View {

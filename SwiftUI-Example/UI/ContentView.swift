@@ -24,8 +24,15 @@ enum ViewType {
 }
 
 struct ContentView: View {
+    private let container: DIContainer
+
+    init(container: DIContainer) {
+        self.container = container
+    }
+
     var body: some View {
         ListContentView()
+            .inject(container)
     }
 }
 
@@ -37,6 +44,6 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(container: DIContainer(appState: Store<AppState>(AppState.preview), interactors: .stub))
     }
 }

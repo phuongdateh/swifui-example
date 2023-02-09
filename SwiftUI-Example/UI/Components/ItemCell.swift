@@ -15,7 +15,6 @@ struct ItemCell: View {
             Text(name)
                 .font(.headline)
         }
-        .padding()
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading)
     }
 }
