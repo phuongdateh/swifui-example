@@ -16,38 +16,48 @@ struct ListContentView: View {
     @State private var routingState: Routing = Routing()
     @Environment(\.injected) private var injectedd: DIContainer
 
+    let inspection = Inspection<Self>()
+
     private var routingBinding: Binding<Routing> {
         $routingState.dispatched(to: injectedd.appState, \.routing.listContent)
     }
 
     var body: some View {
-        GeometryReader { geometry in
+        if #available(iOS 16.0, *) {
+            NavigationStack {
+                self.content
+                    .navigationTitle("Contents")
+            }
+            .onReceive(inspection.notice) { self.inspection.visit(self, $0) }
+        } else {
             NavigationView {
                 self.content
-                    .navigationTitle("SwiftUI Content")
-                    .animation(.easeOut(duration: 0.3))
+                    .navigationTitle("Contents")
             }
         }
     }
 
     @ViewBuilder private var content: some View {
-        VStack(alignment: .leading) {
-            List(items, id: \.hash) { item in
-                NavigationLink(
-                    destination: self.textDetailView(name: item),
-                    tag: item,
-                    selection: self.routingBinding.textDetail) {
-                        ItemCell(name: item)
-                    }
-                    .id(items.count)
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                List(items, id: \.hash) { item in
+                    NavigationLink(
+                        destination: self.textDetailView(name: item),
+                        tag: item,
+                        selection: self.routingBinding.textDetail) {
+                            ItemCell(name: item)
+                        }
+                        .id(items.count)
+                }
             }
+            .background(Color.red)
+            .foregroundColor(.black)
         }
-        .background(Color.red)
-        .foregroundColor(.black)
     }
 
     func textDetailView(name: String) -> some View {
         return TextDetailView(name: name)
+            .inject(injectedd)
     }
 }
 

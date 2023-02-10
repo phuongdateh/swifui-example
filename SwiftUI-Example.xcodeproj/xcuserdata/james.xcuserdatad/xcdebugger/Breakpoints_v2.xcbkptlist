@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "042C92B5-DB81-4EE2-929C-AE8985E37057"
+            uuid = "100663BC-2407-4A57-ABD8-B2C1A61B53B2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftUI-Example/Utilities/Helpers.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "visit(_:_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "100663BC-2407-4A57-ABD8-B2C1A61B53B2 - 7d473b1799eebac5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI_Example.Inspection.visit(&#x3c4;_0_0, Swift.UInt) -&gt; ()"
+                  moduleName = "SwiftUI-Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/james/Codes/Interview/SwiftUI-Example/SwiftUI-Example/Utilities/Helpers.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  uuid = "100663BC-2407-4A57-ABD8-B2C1A61B53B2 - 7d473b1799eebac5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI_Example.Inspection.visit(&#x3c4;_0_0, Swift.UInt) -&gt; ()"
+                  moduleName = "SwiftUI-Example"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/james/Codes/Interview/SwiftUI-Example/SwiftUI-Example/Utilities/Helpers.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

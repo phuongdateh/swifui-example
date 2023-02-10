@@ -9,13 +9,22 @@ import SwiftUI
 
 struct TextDetailView: View {
     let name: String
+
+    let inspection = Inspection<Self>()
+
     var body: some View {
+        self.content
+            .onReceive(inspection.notice) {
+                self.inspection.visit(self, $0)
+            }
+    }
+
+    var content: some View {
         VStack {
             Text(name)
                 .foregroundColor(.red)
                 .font(.headline)
         }
-        .padding()
     }
 }
 
